@@ -3,10 +3,6 @@ import { Card, Col } from 'antd';
 
 
 class TweetItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     var divStyle = {
       marginTop: '0.5em',
