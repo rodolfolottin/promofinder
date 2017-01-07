@@ -6,10 +6,11 @@ import { searchItem } from './../actions/actions';
 
 class App extends Component {
   render() {
+    const { dispatch, promos } = this.props;
     return (
       <div className="App">
         <SearchBar />
-        <ListPromo />
+        <ListPromo promosList = { promos }/>
       </div>
     );
   }
@@ -17,9 +18,9 @@ class App extends Component {
 
 function promosList(state) {
   return {
-    promos: state
+    promos: state.promos
   }
 }
 
-App = connect(list)(App);
+App = connect(promosList)(App);
 export default App;
