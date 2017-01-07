@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Card, Col } from 'antd';
 
 
-class TweetItem extends React.Component {
+class PromoItem extends Component {
   render() {
     var divStyle = {
       marginTop: '0.5em',
-      width : '35em',
+      width : '40em',
       height: '9em'
     };
 
@@ -22,13 +22,13 @@ class TweetItem extends React.Component {
 
     return (
         <Col span="8">
-          <Card style={divStyle} extra={<a href={this.props.product.link}>More</a>}>
+          <Card style={divStyle} extra={<a href={this.props.promo.link}>More</a>}>
             <p style={pItemStyle}>
-              {this.props.product.item}
+              {this.props.promo.item}
             </p>
             <p style={pLinkStyle}>
               <em>
-                {this.props.product.created_at}
+                {this.props.promo.created_at}
               </em>
             </p>
           </Card>
@@ -37,4 +37,4 @@ class TweetItem extends React.Component {
   }
 }
 
-export default TweetItem;
+export default PromoItem;

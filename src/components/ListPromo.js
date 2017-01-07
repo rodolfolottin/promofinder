@@ -1,13 +1,11 @@
-import React from 'react';
-import TweetItem from './TweetItem';
+import React, { Component } from 'react';
+import PromoItem from './PromoItem';
 import { Row } from 'antd';
 
 
-class TweetsItensTable extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {products:
+class ListPromo extends Component {
+  render() {
+    this.state = {promos:
         [
           {item: '[Magazine Luiza] Home Theater Samsung HT-F5505K 1000W RMS - 5.1 Canais Blu-Ray R$ 800 + FG', created_at: '10 days ago', link: 'https://t.co/MyDtpY4Est'},
           {item: '[EncaparMeuPhone] SlickWraps - Todo Site Com 50%', created_at: '3 days ago', link: 'https://t.co/9jQGo31eCs'},
@@ -16,9 +14,6 @@ class TweetsItensTable extends React.Component {
           {item: '[Shoptime] Livro infantil - Aprenda com a Minnie (6 livros + boneca) - R$30,51', created_at: '10 days ago', link: 'https://t.co/kDOM6aZRDH'},
         ]
     };
-  }
-
-  render() {
     var divStyle = {
       marginTop: '1.5em',
       background: '#ECECEC',
@@ -28,13 +23,13 @@ class TweetsItensTable extends React.Component {
     };
 
     return (
-        <div className="TweetItensTable" style={divStyle}>
+        <div className="ListPromo" style={divStyle}>
           <Row>
-            {this.state.products.map((product, i) => <TweetItem product={product} key={i} />)}
+            {this.state.promos.map((promo, i) => <TweetItem promo={promo} key={i} />)}
           </Row>
         </div>
    );
   }
 }
 
-export default TweetsItensTable;
+export default ListPromo;
