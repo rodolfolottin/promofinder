@@ -9,8 +9,10 @@ class App extends Component {
     const { dispatch, promos } = this.props;
     return (
       <div className="App">
-        <SearchBar />
-        <ListPromo promosList = { promos }/>
+      <SearchBar onSearchItem = {
+            text => dispatch(searchItem(text))}>
+      </SearchBar>
+      <ListPromo promosList = { promos }/>
       </div>
     );
   }
