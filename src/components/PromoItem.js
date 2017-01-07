@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import { Card, Col } from 'antd';
 
-
 class PromoItem extends Component {
   render() {
-    var divStyle = {
+    const divStyle = {
       marginTop: '0.5em',
       width : '40em',
       height: '9em'
     };
 
-    var pItemStyle = {
+    const pItemStyle = {
       marginTop: '0.6em'
     };
 
-    var pLinkStyle = {
+    const pLinkStyle = {
       position: 'absolute',
       right: '1em',
       bottom: '1em'
     };
-
+    console.log(this.props.promo);
     return (
         <Col span="8">
           <Card style={divStyle} extra={<a href={this.props.promo.link}>More</a>}>
