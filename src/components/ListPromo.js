@@ -5,16 +5,8 @@ import { Row } from 'antd';
 
 class ListPromo extends Component {
   render() {
-    this.state = {promos:
-        [
-          {item: '[Magazine Luiza] Home Theater Samsung HT-F5505K 1000W RMS - 5.1 Canais Blu-Ray R$ 800 + FG', created_at: '10 days ago', link: 'https://t.co/MyDtpY4Est'},
-          {item: '[EncaparMeuPhone] SlickWraps - Todo Site Com 50%', created_at: '3 days ago', link: 'https://t.co/9jQGo31eCs'},
-          {item: '[Shoptime] Livro infantil - Aprenda com a Minnie (6 livros + boneca) - R$30,51', created_at: '10 days ago', link: 'https://t.co/kDOM6aZRDH'},
-          {item: '[Shoptime] Livro infantil - Aprenda com a Minnie (6 livros + boneca) - R$30,51', created_at: '10 days ago', link: 'https://t.co/kDOM6aZRDH'},
-          {item: '[Shoptime] Livro infantil - Aprenda com a Minnie (6 livros + boneca) - R$30,51', created_at: '10 days ago', link: 'https://t.co/kDOM6aZRDH'},
-        ]
-    };
-    var divStyle = {
+    console.log(this.props.promos);
+    const divStyle = {
       marginTop: '1.5em',
       background: '#ECECEC',
       padding: '3em',
@@ -25,7 +17,11 @@ class ListPromo extends Component {
     return (
         <div className="ListPromo" style={divStyle}>
           <Row>
-            {this.state.promos.map((promo, i) => <TweetItem promo={promo} key={i} />)}
+            {
+              this.props.promos.map((promo, index) => {
+                return <PromoItem promo={promo} key={index} </PromoItem>)
+              }
+            }
           </Row>
         </div>
    );
