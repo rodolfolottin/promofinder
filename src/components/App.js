@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 import ListPromo from './ListPromo';
@@ -9,20 +9,20 @@ class App extends Component {
     const { dispatch, promos } = this.props;
     return (
       <div className="App">
-      <SearchBar onSearchItem = {
+      <SearchBar onSearchItem={
             text => dispatch(searchItem(text))}>
       </SearchBar>
-      <ListPromo promosList = { promos }/>
+      <ListPromo promos={ promos }/>
       </div>
     );
   }
 }
 
-function promosList(state) {
+function promos(state) {
   return {
     promos: state.promos
   }
 }
 
-App = connect(promosList)(App);
+App = connect(promos)(App);
 export default App;

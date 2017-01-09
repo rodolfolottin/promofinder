@@ -1,43 +1,53 @@
-import { FETCH_FAILED, FETCH_SUCCESS, FETCH_EMPTY, SEARCH_ITEM } from '../constants/actionsTypes';
+import fetch from 'isomorphic-fetch';
+import { FETCH_FAILED, FETCH_SUCCESS, FETCH_EMPTY } from '../constants/actionsTypes';
 
 export function searchItem(text) {
-  return dispatch =>
-    fetch('http://localhost:5000/hardmob_promos/' + text), {
-      method: 'get'
-    }).then(response => {
-        switch (response.status) {
+  return function (dispatch) {
+    return fetch('http://localhost:5000/hardmob_promos/'.concat(text))
+    .then(response => response.json())
+    .then(json => {
+        switch (json.code) {
           case 200:
-            console.log(response);
-            dispatch(fetchSuccess(response));
+            console.log(json);
+            dispatch(fetchSuccess(json));
             break;
           case 204:
-            console.log(response);
-            dispatch(fetchEmpty(response));
+            console.log(json);
+            dispatch(fetchEmpty(json));
             break;
           case 404:
-            console.log(response);
-            dispatch(fetchError(response));
+            console.log(json);
+            dispatch(fetchFailed(json));
             break;
           default:
-            console.log(response)
-        }
+            console.log(json)
+        };
     }).catch(error => {
         console.log('Request failed', error);
     });
-}
-
-export function fetchSuccess(response) {
-  return dispatch => {
-    dispatch({ response, type: FETCH_SUCCESS });
   }
 }
 
-export function fetchEmpty(response) {
-  return dispatch => {
-    dispatch({ response, type: FETCH_EMPTY });
+export function fetchSuccess(json) {
+  return {
+      code: json.code,
+      promos: json.promos,
+      type: FETCH_SUCCESS
+  }
+}
+
+export function fetchEmpty(json) {
+  return {
+      code: json.code,
+      promos: null,
+      type: FETCH_EMPTY
   }
 }
 
 export function fetchFailed(error) {
-  return { code: 500, error, type: FETCH_FAILED };
+  return {
+      code: 500,
+      error,
+      type: FETCH_FAILED
+  }
 }

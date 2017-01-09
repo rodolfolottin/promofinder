@@ -9,9 +9,8 @@ class SearchBar extends Component {
       marginTop: '5em'
     };
 
-    console.log(this.props);
     return (
-      <Search placeholder="Search item" onSearch={value => this.props.searchItem(value)} size="large" style={divStyle} />
+      <Search placeholder="Search item" onSearch={value => this.props.onSearchItem(value)} size="large" style={divStyle} />
     );
   }
 

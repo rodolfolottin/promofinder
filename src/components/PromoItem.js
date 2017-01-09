@@ -18,7 +18,6 @@ class PromoItem extends Component {
       right: '1em',
       bottom: '1em'
     };
-    console.log(this.props.promo);
     return (
         <Col span="8">
           <Card style={divStyle} extra={<a href={this.props.promo.link}>More</a>}>

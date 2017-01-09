@@ -5,7 +5,6 @@ import { Row } from 'antd';
 
 class ListPromo extends Component {
   render() {
-    console.log(this.props.promos);
     const divStyle = {
       marginTop: '1.5em',
       background: '#ECECEC',
@@ -19,8 +18,8 @@ class ListPromo extends Component {
           <Row>
             {
               this.props.promos.map((promo, index) => {
-                return <PromoItem promo={promo} key={index} </PromoItem>)
-              }
+                return <PromoItem promo={promo} key={index}> </PromoItem>
+              })
             }
           </Row>
         </div>
