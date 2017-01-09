@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PromoItem from './PromoItem';
-import { Row } from 'antd';
-
+import { Row, Spin } from 'antd';
 
 class ListPromo extends Component {
   render() {
@@ -13,8 +12,18 @@ class ListPromo extends Component {
       marginRight: '1.5em'
     };
 
+    const divSpinStyle = {
+      textAlign: 'center',
+      borderRadius: '4px'
+    };
+
     return (
         <div className="ListPromo" style={divStyle}>
+        {this.props.loading === true &&
+          <div className="Spin" style={divSpinStyle}>
+            <Spin />
+          </div>
+        }
           <Row>
             {
               this.props.promos.map((promo, index) => {

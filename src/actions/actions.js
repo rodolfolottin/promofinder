@@ -1,34 +1,39 @@
 import fetch from 'isomorphic-fetch';
-import { FETCH_FAILED, FETCH_SUCCESS, FETCH_EMPTY } from '../constants/actionsTypes';
+import { FETCH_FAILED, FETCH_SUCCESS, FETCH_EMPTY, SEARCH_ITEM } from '../constants/actionsTypes';
 
 export function searchItem(text) {
   return function (dispatch) {
+    dispatch(fetchStarting(text));
     return fetch('http://localhost:5000/hardmob_promos/'.concat(text))
     .then(response => response.json())
     .then(json => {
         switch (json.code) {
           case 200:
-            console.log(json);
             dispatch(fetchSuccess(json));
             break;
           case 204:
-            console.log(json);
             dispatch(fetchEmpty(json));
             break;
           case 404:
-            console.log(json);
             dispatch(fetchFailed(json));
             break;
           default:
-            console.log(json)
+            break;
         };
     }).catch(error => {
+        dispatch(fetchFailed(error));
         console.log('Request failed', error);
     });
   }
 }
 
-export function fetchSuccess(json) {
+function fetchStarting(text) {
+  return {
+      type: SEARCH_ITEM
+  }
+}
+
+function fetchSuccess(json) {
   return {
       code: json.code,
       promos: json.promos,
@@ -36,18 +41,18 @@ export function fetchSuccess(json) {
   }
 }
 
-export function fetchEmpty(json) {
+function fetchEmpty(json) {
   return {
       code: json.code,
-      promos: null,
+      promos: [],
       type: FETCH_EMPTY
   }
 }
 
-export function fetchFailed(error) {
+function fetchFailed(error) {
   return {
       code: 500,
-      error,
+      error: error,
       type: FETCH_FAILED
   }
 }

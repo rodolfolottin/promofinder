@@ -8,16 +8,14 @@ const initialState = {
 }
 
 export default function promoApp(state = initialState, action) {
-  console.log(action);
   switch (action.type) {
     case SEARCH_ITEM:
       return Object.assign({}, state, {
         loading: true,
-        promos: state.promos,
+        promos: [],
         code: null,
         error: null
       })
-      break;
     case FETCH_SUCCESS:
       return Object.assign({}, state, {
         loading: false,
@@ -25,7 +23,6 @@ export default function promoApp(state = initialState, action) {
         code: action.code,
         error: null
       })
-      break;
     case FETCH_EMPTY:
       return Object.assign({}, state, {
         loading: false,
@@ -33,15 +30,13 @@ export default function promoApp(state = initialState, action) {
         code: action.code,
         error: null
       })
-      break;
      case FETCH_FAILED:
       return Object.assign({}, state, {
         loading: false,
-        promos: null,
+        promos: state.promos,
         code: action.code,
         error: action.error
       })
-      break;
     default:
       return state
   }
