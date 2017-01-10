@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PromoItem from './PromoItem';
-import { Row, Spin } from 'antd';
+import { Row, Spin, Icon } from 'antd';
 
 class ListPromo extends Component {
   render() {
@@ -16,7 +16,6 @@ class ListPromo extends Component {
       textAlign: 'center',
       borderRadius: '4px'
     };
-
     return (
         <div className="ListPromo" style={divStyle}>
         {this.props.loading === true &&

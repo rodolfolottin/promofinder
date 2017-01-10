@@ -44,7 +44,7 @@ function fetchSuccess(json) {
 function fetchEmpty(json) {
   return {
       code: json.code,
-      promos: [],
+      promos: null,
       type: FETCH_EMPTY
   }
 }
