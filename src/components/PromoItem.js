@@ -31,7 +31,11 @@ class PromoItem extends Component {
       <Card
         title="PromoFinder Item"
         style={divStyle}
-        extra={<a href={link}>More</a>}
+        extra={
+          <a target="_blank" rel="noopener noreferrer" href={link}>
+            More
+          </a>
+        }
       >
         <p style={pItemStyle}>{item}</p>
         <p style={pLinkStyle}>
