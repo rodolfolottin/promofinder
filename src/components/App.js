@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import SearchBar from './SearchBar';
-import ListPromo from './ListPromo';
-import { searchItem } from './../actions/actions';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import SearchBar from './SearchBar'
+import ListPromo from './ListPromo'
+import { searchItem } from './../actions/actions'
 
 class App extends Component {
   render() {
-    const { dispatch,
-            promos,
-            loading,
-            code
-           } = this.props;
+    const { dispatch, promos, loading, code } = this.props
+
+    const appStyle = {
+      minWidth: '30em'
+    }
 
     return (
-      <div className="App">
-      <SearchBar onSearchItem={
-            text => dispatch(searchItem(text))}>
-      </SearchBar>
-      <ListPromo promos={ promos } loading= { loading } code={ code }/>
+      <div className="App" style={appStyle}>
+        <SearchBar onSearchItem={text => dispatch(searchItem(text))} />
+        <ListPromo promos={promos} loading={loading} code={code} />
       </div>
-    );
+    )
   }
 }
 
@@ -31,5 +29,5 @@ function loadState(state) {
   }
 }
 
-App = connect(loadState)(App);
-export default App;
+App = connect(loadState)(App)
+export default App
