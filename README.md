@@ -1,12 +1,10 @@
-# Promos Researcher App Client
+# promofinder
 
-Client side of the promos researcher app.
-
-The main goal with the development of this project is to learn ReactJS and it's auxiliary tools, like Redux and Ant Design.
+The frontend of the promofinder app.
 
 ## Running Project
 
-You should have `yarn` installed on your machine to a better experience. If you want to use `npm`, make sure that you have the last version (6.0.0 when this is written).
+You should have `yarn` installed on your machine to a better experience. If you want to use `npm`, make sure that you have the last version (6.0.0 when this was written).
 
 First of all, install all the packages
 
