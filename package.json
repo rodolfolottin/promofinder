@@ -1,8 +1,8 @@
 {
-  "name": "promo-researcher",
+  "name": "promofinder",
   "version": "0.2.0",
   "private": true,
-  "description": "Client side of the promos researcher app.",
+  "description": "Client side of the promos finder app.",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode development --hot",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodolfolottin/promo-researcher.git"
+    "url": "git+https://github.com/rodolfolottin/promofinder.git"
   },
   "author": "git@rodolfolottin <email@here.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rodolfolottin/promo-researcher/issues"
+    "url": "https://github.com/rodolfolottin/promofinder/issues"
   },
-  "homepage": "https://github.com/rodolfolottin/promo-researcher#readme",
+  "homepage": "https://github.com/rodolfolottin/promofinder/#readme",
   "dependencies": {
     "antd": "^3.4.4",
     "react": "^16.3.2",
